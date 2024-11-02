@@ -18,49 +18,49 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/tickets")
 public class Controller {
-	
-	   @Autowired
-	   private FlightTicketService flightTicketService ;//= new FlightTicketService();
-	  
-	   @PostMapping("/book")
-	    public FlightTicket bookFlightTicket(@RequestBody FlightTicketRequest request) {
-	        FlightTicket flightTicket = new FlightTicket(
-	                request.getPassengerName(),
-	                request.getPassengerEmail(),
-	                request.getFlightNumber(),
-	                request.getDepartureAirport(),
-	                request.getArrivalAirport(),
-	                request.getDepartureDate(),
-	                request.getPrice(),
-	                BookingStatus.CONFIRMED // Set the status as needed
-	        );
 
-	        // Save flightTicket to the database (omitted for brevity)
-	        return flightTicket;
-	    }
-	
-	   @PostMapping("/addBooking")
-	    public void bookTicket(@RequestBody FlightTicketRequest request) {
-	        flightTicketService.addTicketRequest(request);
-	    }
+	@Autowired
+	private FlightTicketService flightTicketService ;//= new FlightTicketService();
 
-	    @GetMapping("/passList")
-	    public LinkedList<FlightTicketRequest> getAllTickets() {
-	        return flightTicketService.getAllTicketRequests();
-	    }
-	    
-	    @GetMapping("/priceList")
-	    public List<FlightTicketRequest> getFilteredTickets(
-	            @RequestParam double minPrice,
-	            @RequestParam String destination) {
-	        return flightTicketService.filterPassengers(minPrice, destination);
-	    }
-	    
-	    
-	@GetMapping("/test2")
+	@PostMapping("/book")
+	public FlightTicket bookFlightTicket(@RequestBody FlightTicketRequest request) {
+		FlightTicket flightTicket = new FlightTicket(
+				request.getPassengerName(),
+				request.getPassengerEmail(),
+				request.getFlightNumber(),
+				request.getDepartureAirport(),
+				request.getArrivalAirport(),
+				request.getDepartureDate(),
+				request.getPrice(),
+				BookingStatus.CONFIRMED // Set the status as needed
+				);
+
+		// Save flightTicket to the database (omitted for brevity)
+		return flightTicket;
+	}
+
+	@PostMapping("/addBooking")
+	public void bookTicket(@RequestBody FlightTicketRequest request) {
+		flightTicketService.addTicketRequest(request);
+	}
+
+	@GetMapping("/passList")
+	public LinkedList<FlightTicketRequest> getAllTickets() {
+		return flightTicketService.getAllTicketRequests();
+	}
+
+	@GetMapping("/priceList")
+	public List<FlightTicketRequest> getFilteredTickets(
+			@RequestParam double minPrice,
+			@RequestParam String destination) {
+		return flightTicketService.filterPassengers(minPrice, destination);
+	}
+
+
+	@GetMapping("/test")
 	public String testApi() {
 		System.out.println("Hello test...");
-		
+
 		return "Hello";
 	}
 

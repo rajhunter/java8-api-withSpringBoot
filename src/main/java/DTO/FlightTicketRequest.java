@@ -3,7 +3,7 @@ package DTO;
 import java.util.Date;
 
 public class FlightTicketRequest {
-    public String getPassengerName() {
+	public String getPassengerName() {
 		return passengerName;
 	}
 	public void setPassengerName(String passengerName) {
@@ -46,12 +46,12 @@ public class FlightTicketRequest {
 		this.price = price;
 	}
 	private String passengerName;
-    private String passengerEmail;
-    private String flightNumber;
-    private String departureAirport;
-    private String arrivalAirport;
-    private Date departureDate;
-    private Double price;
+	private String passengerEmail;
+	private String flightNumber;
+	private String departureAirport;
+	private String arrivalAirport;
+	private Date departureDate;
+	private Double price;
 
-    // Getters and Setters
+	// Getters and Setters
 }

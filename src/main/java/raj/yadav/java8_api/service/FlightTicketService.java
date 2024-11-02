@@ -14,21 +14,21 @@ import DTO.FlightTicketRequest;
 @Service
 @ComponentScan
 public class FlightTicketService {
-    private LinkedList<FlightTicketRequest> ticketRequests = new LinkedList<>();
+	private LinkedList<FlightTicketRequest> ticketRequests = new LinkedList<>();
 
-    public void addTicketRequest(FlightTicketRequest request) {
-        ticketRequests.add(request);
-    }
+	public void addTicketRequest(FlightTicketRequest request) {
+		ticketRequests.add(request);
+	}
 
-    public LinkedList<FlightTicketRequest> getAllTicketRequests() {
-        return ticketRequests;
-    }
+	public LinkedList<FlightTicketRequest> getAllTicketRequests() {
+		return ticketRequests;
+	}
 
 
-    public List<FlightTicketRequest> filterPassengers(double minPrice, String destination) {
-        return ticketRequests.stream()
-                .filter(request -> request.getPrice() > minPrice &&
-                                  destination.equalsIgnoreCase(request.getArrivalAirport()))
-                .collect(Collectors.toList());
-    }
+	public List<FlightTicketRequest> filterPassengers(double minPrice, String destination) {
+		return ticketRequests.stream()
+				.filter(request -> request.getPrice() > minPrice &&
+						destination.equalsIgnoreCase(request.getArrivalAirport()))
+				.collect(Collectors.toList());
+	}
 }

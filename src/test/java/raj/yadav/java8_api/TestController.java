@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1")
 public class TestController {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestController.class);
+	private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
-   @GetMapping("/test")
-    public String testApi() {
-        logger.info("Received request for /v1/test");
-        return "Hello";
-    }
+	@GetMapping("/test")
+	public String testApi() {
+		logger.info("Received request for /v1/test");
+		return "Hello";
+	}
 }
