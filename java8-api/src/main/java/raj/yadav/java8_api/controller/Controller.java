@@ -16,7 +16,7 @@ import raj.yadav.java8_api.service.FlightTicketService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/api/tickets")
 public class Controller {
 	
 	   @Autowired
